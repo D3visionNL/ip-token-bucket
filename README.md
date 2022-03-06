@@ -4,7 +4,7 @@ IP based token bucket rate limiter / throttler. Read more about [Token Buckets](
 
 ## Usage
 
-Install the package by typing `npm i ip-token-bucket` in your project folder.
+Install the package by typing `npm i @bitsoft-network/ip-token-bucket` in your project folder.
 
 ### Setup
 
