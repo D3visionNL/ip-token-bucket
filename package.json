@@ -1,6 +1,6 @@
 {
   "name": "@bitsoft-network/ip-token-bucket",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IP based token bucket rate limiter / throttler.",
   "main": "index.js",
   "directories": {
