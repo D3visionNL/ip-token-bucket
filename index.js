@@ -3,10 +3,10 @@ const TokenBucket = require("./lib/TokenBucket");
 
 // Main class
 class IPTokenBucket {
-  constructor(capacity, fillPerSecond) {
+  constructor({ maxBurst, perSecond }) {
     this.buckets = new Map();
-    this.capacity = capacity || 5;
-    this.fillPerSecond = fillPerSecond || 1;
+    this.capacity = maxBurst || 10;
+    this.fillPerSecond = perSecond || 5;
   }
 
   // Take a token out of IP's bucket
@@ -14,10 +14,8 @@ class IPTokenBucket {
     // Check if ip doesn't have a bucket yet
     if (!this.buckets.has(ipAddress)) {
       // Set a new bucket for ip
-      this.buckets.set(
-        ipAddress,
-        new TokenBucket(this.capacity, this.fillPerSecond)
-      );
+      const bucket = new TokenBucket(this.capacity, this.fillPerSecond);
+      this.buckets.set(ipAddress, bucket);
     }
 
     // Get ip's bucket
